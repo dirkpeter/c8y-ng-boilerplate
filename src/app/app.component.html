@@ -1,0 +1,23 @@
+<header>
+  <a [routerLink]="['']">Home</a>
+  <a href="#" (click)="logout()">Logout</a>
+</header>
+
+<section *ngIf="Cumulocity.client">
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+  <aside class="left">
+    <group-list></group-list>
+  </aside>
+
+  <!--
+  <aside class="right">
+  </aside>
+  -->
+</section>
+
+<c8y-login *ngIf="!Cumulocity.client"></c8y-login>
+
+<footer></footer>

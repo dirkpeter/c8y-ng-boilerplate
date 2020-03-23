@@ -1,0 +1,21 @@
+<loading *ngIf="isLoading"></loading>
+
+<header *ngIf="!isLoading">
+  <a class="details" [routerLink]="['/groups', group.id]">
+    <i class="fa" *ngIf="group.group_icon" [ngClass]="'fa-'+group.group_icon"></i>
+    <main>{{group.name}}</main>
+  </a>
+
+  <a class="toggle" title="Toggle sub-menu"
+    *ngIf="group.childAssets && group.childAssets.references.length"
+    (click)="toggleChildrenDisplay()">
+    <i class="fa"
+      [ngClass]="{'fa-plus': !group.childAssets.show, 'fa-minus': group.childAssets.show}"></i>
+  </a>
+</header>
+
+<ul *ngIf="group.childAssets && group.childAssets.references.length && showChildren">
+  <li *ngFor="let g of group.childAssets.references">
+    <group-list-item [group]="g"></group-list-item>
+  </li>
+</ul>

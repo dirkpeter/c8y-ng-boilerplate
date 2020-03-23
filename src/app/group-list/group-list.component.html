@@ -1,0 +1,7 @@
+<loading *ngIf="isLoading"></loading>
+
+<ul>
+  <li *ngFor="let g of groups">
+    <group-list-item [group]="g" [loadChildren]="true"></group-list-item>
+  </li>
+</ul>

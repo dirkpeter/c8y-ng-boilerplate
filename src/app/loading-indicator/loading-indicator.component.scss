@@ -1,0 +1,64 @@
+// TODO colors from css vars
+
+$dot-size: 6px;
+$dot-count: 3;
+$dot-delay: .15s;
+
+@keyframes jump {
+  0%   {transform: translate3d(0,-50%,0) scale3d(1,1,1);}
+  40%  {transform: translate3d(0,-20%,0) scale3d(.7,1.5,1);}
+  100% {transform: translate3d(0,50%,0) scale3d(1.5,.7,1);}
+}
+
+span {
+  display: block;
+  height: $dot-size;
+  width: $dot-size;
+  border-radius: 50%;
+  background-color: var(--link-color);
+  transform-origin: 50% 50%;
+
+  + span {
+    margin-left: .25em;
+  }
+}
+
+// animation delay
+@for $i from 0 to $dot-count {
+  .dot-#{$i+1} {
+    animation: jump .5s #{$dot-delay * $i} linear alternate infinite;
+  }
+}
+
+main {
+  display: flex;
+}
+
+div {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    display: block;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    opacity: .8;
+  }
+
+  &.is-transparent::after {
+    display: none;
+  }
+}

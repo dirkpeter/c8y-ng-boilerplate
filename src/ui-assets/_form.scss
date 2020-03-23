@@ -1,0 +1,15 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  + .form-group {
+    margin-top: 1em;
+  }
+}
+
+.form-actions {
+  margin-top: 1.5em;
+  display: flex;
+  justify-content: center;
+}
+

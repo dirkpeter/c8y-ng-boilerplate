@@ -1,0 +1,58 @@
+// TODO colors from css vars
+
+header,
+main,
+footer {
+  padding: 6px 12px;
+}
+
+header,
+footer {
+  background-color: #ccc;
+  flex-shrink: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+}
+
+main {
+  flex-grow: 1;
+  order: 10;
+  overflow: auto;
+}
+
+aside {
+  position: relative;
+  flex-shrink: 0;
+  flex-basis: 240px;
+  padding: 6px 0;
+
+  &.left {
+    order: 1;
+  }
+
+  &.right {
+    order: 50;
+  }
+}
+
+section {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+footer {
+  min-height: 10px;
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}

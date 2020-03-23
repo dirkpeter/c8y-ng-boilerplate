@@ -1,0 +1,26 @@
+{
+  "/user/*": {
+    "target": "https://t10452223.eu-latest.cumulocity.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/measurement/*": {
+    "target": "https://t10452223.eu-latest.cumulocity.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/inventory/*": {
+    "target": "https://t10452223.eu-latest.cumulocity.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/apps/public/**": {
+    "target": "https://issg.test-ram.m2m.telekom.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

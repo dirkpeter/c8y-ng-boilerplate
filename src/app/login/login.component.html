@@ -1,0 +1,23 @@
+<form role="form" class="card" novalidate
+  #f="ngForm"
+  (ngSubmit)="login()">
+  <div class="form-group"
+    [ngClass]="{'has-error': !user.valid && !user.pristine}">
+    <label for="login-user" translate>Username</label>
+    <input id="login-user" type="text" name="user" autocapitalize="off" autocorrect="off" required
+      [(ngModel)]="model.user"
+      #user="ngModel">
+  </div>
+
+  <div class="form-group"
+    [ngClass]="{'has-error': !password.valid && !password.pristine}">
+    <label for="login-password" translate>Password</label>
+    <input id="login-password" type="password" name="password" required
+      [(ngModel)]="model.password" #password="ngModel">
+  </div>
+
+  <div class="form-actions">
+    <button type="submit" [disabled]="!f.form.valid && !formDisabled"
+      class="btn btn-primary">Login</button>
+  </div>
+</form>

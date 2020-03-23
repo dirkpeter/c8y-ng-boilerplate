@@ -1,0 +1,14 @@
+<div *ngIf="group">
+  <h1>
+    {{group.name}}
+    <small>#{{group.id}}</small>
+  </h1>
+
+  <ul>
+    <li><a href="javascript:history.go(-1)">Back</a></li>
+  </ul>
+
+  <pre>
+    {{group | json}}
+  </pre>
+</div>

@@ -5,12 +5,12 @@ import { CumulocityService } from '../../_services';
 // TODO set types
 
 @Component({
-  selector: 'page-group-details',
-  templateUrl: './page-group-details.component.html',
-  styleUrls: [ './page-group-details.component.scss' ]
+  selector: 'group-details',
+  templateUrl: './group-details.component.html',
+  styleUrls: [ './group-details.component.scss' ]
 })
 
-export class PageGroupDetailsComponent implements OnInit {
+export class GroupDetailsComponent implements OnInit {
   private client;
   private groupId: number;
   public group;

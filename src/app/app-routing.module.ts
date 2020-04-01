@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
 import {
   PageNotFoundComponent,
-  PageGroupDetailsComponent
+  GroupDetailsComponent,
+  DashboardComponent
 } from './pages';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
-  { path: 'groups/:groupId', component: PageGroupDetailsComponent },
+  { path: 'groups/:groupId', component: GroupDetailsComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

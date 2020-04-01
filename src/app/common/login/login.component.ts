@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { CumulocityService } from '../_services';
-import { environment } from './../../environments/environment';
+import { CumulocityService } from '../../_services';
+import { environment } from '../../../environments/environment';
 
 // TODO set types
 

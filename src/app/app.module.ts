@@ -19,11 +19,13 @@ import {
 } from './group-list';
 import {
   PageNotFoundComponent,
-  PageGroupDetailsComponent
+  GroupDetailsComponent,
+  DashboardComponent
 } from './pages';
-import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator.component';
+import {
+  LoginComponent,
+  LoadingIndicatorComponent
+} from './common';
 
 
 @NgModule({
@@ -32,9 +34,9 @@ import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator
     GroupListComponent,
     GroupListItemComponent,
     PageNotFoundComponent,
-    PageGroupDetailsComponent,
-    LoginComponent,
+    GroupDetailsComponent,
     DashboardComponent,
+    LoginComponent,
     LoadingIndicatorComponent
   ],
   imports: [

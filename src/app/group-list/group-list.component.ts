@@ -1,5 +1,5 @@
 import { Component, OnInit, isDevMode } from '@angular/core';
-import { CumulocityService } from '../_services';
+import { CumulocityService, AssetService } from '../_services';
 import { IResultList, IManagedObject, Client } from '@c8y/client';
 
 @Component({
@@ -15,8 +15,11 @@ export class GroupListComponent implements OnInit {
   public isLoading: boolean;
   public groups: Array<IManagedObject>;
 
-  constructor(public C8Y: CumulocityService) {
-    this.client = this.C8Y.client;
+  constructor(
+    private C8Y: CumulocityService,
+    private Assets: AssetService
+    ) {
+      this.client = this.C8Y.client;
   }
 
   private _log(txt: string, ...args: any): void {
@@ -35,6 +38,8 @@ export class GroupListComponent implements OnInit {
         this._log('ngOnInit|res', res);
         this.fetchMoreGroups(res);
       });
+
+    this.Assets.fetchAssets();
   }
 
   async fetchGroups(page: number): Promise<IResultList<IManagedObject>> {

@@ -12,12 +12,12 @@ export class GroupListItemComponent implements OnInit {
   @Input() group:IManagedObject;
   @Input() open:boolean;
 
-  private DEBUG:boolean = true;
+  private DEBUG:boolean = false;
   public isLoading:boolean;
   public showChildren:boolean;
   private client: Client;
 
-  constructor(public C8Y: CumulocityService) {
+  constructor(private C8Y: CumulocityService) {
     this.client = this.C8Y.client;
   }
 

@@ -13,5 +13,4 @@ export class LoadingIndicatorComponent implements OnInit {
   ngOnInit(): void {
     this.transparent = this.transparent || false;
   }
-
 }

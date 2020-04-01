@@ -19,7 +19,7 @@ export class GroupListComponent implements OnInit {
     this.client = this.C8Y.client;
   }
 
-  private _log(txt: any, ...args: any): void {
+  private _log(txt: string, ...args: any): void {
     if (isDevMode() && this.DEBUG) {
       console.log('[GroupListComponent] ' + txt, args);
     }
@@ -45,7 +45,7 @@ export class GroupListComponent implements OnInit {
       pageSize: this.GROUP_PAGE_SIZE,
       currentPage: page,
       withTotalPages: true,
-      skipChildrenNames: true
+      skipChildrenNames: true // names not needed/optional as full MO will be fetched if required
     };
 
     return this.client.inventory

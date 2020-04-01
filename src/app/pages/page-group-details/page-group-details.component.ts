@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CumulocityService } from '../_services';
+import { CumulocityService } from '../../_services';
 
 // TODO set types
 
 @Component({
-  selector: 'group-details',
-  templateUrl: './group-details.component.html',
-  styleUrls: [ './group-details.component.scss' ]
+  selector: 'page-group-details',
+  templateUrl: './page-group-details.component.html',
+  styleUrls: [ './page-group-details.component.scss' ]
 })
 
-export class GroupDetailsComponent implements OnInit {
+export class PageGroupDetailsComponent implements OnInit {
   private client;
   private groupId: number;
   public group;

@@ -7,26 +7,36 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { CumulocityService, BrandingService } from './_services';
+import {
+  CumulocityService,
+  BrandingService,
+  AssetService
+} from './_services';
 
-import { GroupListComponent } from './group-list/group-list.component';
-import { GroupDetailsComponent } from './group-details/group-details.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { LoginComponent } from './login/login.component';
-import { GroupListItemComponent } from './group-list-item/group-list-item.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator.component';
+import {
+  GroupListComponent,
+  GroupListItemComponent,
+} from './group-list';
+import {
+  PageNotFoundComponent,
+  GroupDetailsComponent,
+  DashboardComponent
+} from './pages';
+import {
+  LoginComponent,
+  LoadingIndicatorComponent
+} from './common';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     GroupListComponent,
-    GroupDetailsComponent,
-    PageNotFoundComponent,
-    LoginComponent,
     GroupListItemComponent,
+    PageNotFoundComponent,
+    GroupDetailsComponent,
     DashboardComponent,
+    LoginComponent,
     LoadingIndicatorComponent
   ],
   imports: [
@@ -38,7 +48,8 @@ import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy},
     CumulocityService,
-    BrandingService
+    BrandingService,
+    AssetService
   ],
   bootstrap: [AppComponent]
 })

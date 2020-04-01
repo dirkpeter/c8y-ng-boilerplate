@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { GroupDetailsComponent } from './group-details/group-details.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {
+  PageNotFoundComponent,
+  GroupDetailsComponent,
+  DashboardComponent
+} from './pages';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },

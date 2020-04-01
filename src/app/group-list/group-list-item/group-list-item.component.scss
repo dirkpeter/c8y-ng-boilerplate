@@ -39,6 +39,7 @@ header {
 
 .toggle {
   display: flex;
+  flex-shrink: 0;
   background-color: var(--brand-dark);
   color: var(--brand-light);
   width: 44px;

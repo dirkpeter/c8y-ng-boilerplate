@@ -30,6 +30,7 @@ aside {
   flex-shrink: 0;
   flex-basis: 240px;
   padding: 6px 0;
+  overflow: auto;
 
   &.left {
     order: 1;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CumulocityService } from '../_services';
+import { CumulocityService } from '../../_services';
 
 // TODO set types
 

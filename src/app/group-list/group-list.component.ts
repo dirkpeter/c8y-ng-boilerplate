@@ -1,5 +1,5 @@
 import { Component, OnInit, isDevMode } from '@angular/core';
-import { CumulocityService } from '../_services';
+import { CumulocityService, AssetService } from '../_services';
 import { IResultList, IManagedObject, Client } from '@c8y/client';
 
 @Component({
@@ -15,11 +15,14 @@ export class GroupListComponent implements OnInit {
   public isLoading: boolean;
   public groups: Array<IManagedObject>;
 
-  constructor(public C8Y: CumulocityService) {
-    this.client = this.C8Y.client;
+  constructor(
+    private C8Y: CumulocityService,
+    private Assets: AssetService
+    ) {
+      this.client = this.C8Y.client;
   }
 
-  private _log(txt: any, ...args: any): void {
+  private _log(txt: string, ...args: any): void {
     if (isDevMode() && this.DEBUG) {
       console.log('[GroupListComponent] ' + txt, args);
     }
@@ -35,6 +38,8 @@ export class GroupListComponent implements OnInit {
         this._log('ngOnInit|res', res);
         this.fetchMoreGroups(res);
       });
+
+    this.Assets.fetchAssets();
   }
 
   async fetchGroups(page: number): Promise<IResultList<IManagedObject>> {
@@ -45,7 +50,7 @@ export class GroupListComponent implements OnInit {
       pageSize: this.GROUP_PAGE_SIZE,
       currentPage: page,
       withTotalPages: true,
-      skipChildrenNames: true
+      skipChildrenNames: true // names not needed/optional as full MO will be fetched if required
     };
 
     return this.client.inventory

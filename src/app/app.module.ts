@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
+import { ChartsModule } from 'ng2-charts';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -16,6 +18,7 @@ import { LoginComponent } from './login/login.component';
 import { GroupListItemComponent } from './group-list-item/group-list-item.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator.component';
+import { ChartComponent } from './pages/chart/chart.component';
 
 
 @NgModule({
@@ -27,12 +30,14 @@ import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator
     LoginComponent,
     GroupListItemComponent,
     DashboardComponent,
-    LoadingIndicatorComponent
+    LoadingIndicatorComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    ChartsModule,
     AppRoutingModule
   ],
   providers: [

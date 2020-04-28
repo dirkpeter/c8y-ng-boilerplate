@@ -10,7 +10,7 @@
     *ngIf="group.childAssets && group.childAssets.references.length"
     (click)="toggleChildrenDisplay()">
     <i class="fa"
-      [ngClass]="{'fa-plus': !group.childAssets.show, 'fa-minus': group.childAssets.show}"></i>
+      [ngClass]="{'fa-plus': !group.showChildren, 'fa-minus': group.showChildren}"></i>
   </a>
 </header>
 

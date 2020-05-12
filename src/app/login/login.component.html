@@ -1,6 +1,7 @@
 <form role="form" class="card" novalidate
   #f="ngForm"
   (ngSubmit)="login()">
+  <div class="mainLogo"></div>
   <div class="form-group"
     [ngClass]="{'has-error': !user.valid && !user.pristine}">
     <label for="login-user" translate>Username</label>

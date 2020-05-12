@@ -9,7 +9,7 @@ export class CumulocityService {
   public client: Client;
   private storageKey = 'currentUser';
   private authCreds = {
-    tenant: '',
+    // tenant: '',
     user: '',
     password: ''
   };

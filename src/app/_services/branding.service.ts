@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 // TODO set types
 
@@ -7,15 +8,15 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class BrandingService {
-  appStyleVars:HTMLStyleElement;
-  favicon:HTMLLinkElement;
+  appStyleVars: HTMLStyleElement;
+  favicon: HTMLLinkElement;
   options;
 
-  fontAwesomeLoaded:Promise<void>;
-  isFontAwesomeLoaded:boolean = false;
+  fontAwesomeLoaded: Promise<void>;
+  isFontAwesomeLoaded = false;
 
   constructor(
-    private http:HttpClient,
+    private http: HttpClient,
   ) {
     this.appStyleVars = document.createElement('style');
     document.head.appendChild(this.appStyleVars);
@@ -30,19 +31,31 @@ export class BrandingService {
         this.options = res;
         this.setExtraCss();
         this.setBrandingCssVars();
-      });
+        if (this.options.faviconUrl) {
+          this.addFavicon(this.options.faviconUrl);
+        }
+      }, error => {});
   }
 
   addCssFile(file) {
     // Create link
-    let link = document.createElement('link');
+    const link = document.createElement('link');
     link.href = file;
     link.rel = 'stylesheet';
     link.type = 'text/css';
 
-    let head = document.getElementsByTagName('head')[0];
-    let style = head.getElementsByTagName('style')[0];
+    const head = document.getElementsByTagName('head')[0];
+    const style = head.getElementsByTagName('style')[0];
 
+    head.insertBefore(link, style);
+  }
+
+  addFavicon(faviconUrl: string) {
+    const link = document.createElement('link');
+    link.href = faviconUrl;
+    link.rel = 'icon';
+    const head = document.getElementsByTagName('head')[0];
+    const style = head.getElementsByTagName('style')[0];
     head.insertBefore(link, style);
   }
 
@@ -68,9 +81,12 @@ export class BrandingService {
 
   setBrandingCssVars() {
     const vars = [];
-
-    for (let cssVar in this.options.brandingCssVars) {
-      vars.push(`--${cssVar}: ${this.options.brandingCssVars[cssVar]};`);
+    if (this.options.brandingCssVars) {
+      for (const cssVar in this.options.brandingCssVars) {
+        if (cssVar) {
+          vars.push(`--${cssVar}: ${this.options.brandingCssVars[cssVar]};`);
+        }
+      }
     }
 
     this.appStyleVars.innerText = `:root {${vars.join('')}}`;

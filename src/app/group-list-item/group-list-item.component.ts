@@ -3,18 +3,18 @@ import { CumulocityService } from '../_services';
 import { Client, IManagedObject, IResult, IResultList } from '@c8y/client';
 
 @Component({
-  selector: 'group-list-item',
+  selector: 'app-group-list-item',
   templateUrl: './group-list-item.component.html',
   styleUrls: ['./group-list-item.component.scss']
 })
 
 export class GroupListItemComponent implements OnInit {
-  @Input() group:IManagedObject;
-  @Input() open:boolean;
+  @Input() group: IManagedObject;
+  @Input() open: boolean;
 
-  private DEBUG:boolean = false;
-  public isLoading:boolean;
-  public showChildren:boolean;
+  private DEBUG = false;
+  public isLoading: boolean;
+  public showChildren: boolean;
   private client: Client;
 
   constructor(public C8Y: CumulocityService) {
@@ -33,8 +33,7 @@ export class GroupListItemComponent implements OnInit {
     // need to fetch its own data?
     if (this.group && this.group.id) {
       this.isLoading = false;
-    }
-    else {
+    } else {
       this.isLoading = true;
       this.fetchSelf()
         .then((): void => {

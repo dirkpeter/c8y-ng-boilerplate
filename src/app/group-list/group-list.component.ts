@@ -3,14 +3,14 @@ import { CumulocityService } from '../_services';
 import { IResultList, IManagedObject, Client } from '@c8y/client';
 
 @Component({
-  selector: 'group-list',
+  selector: 'app-group-list',
   templateUrl: './group-list.component.html',
   styleUrls: [ './group-list.component.scss' ]
 })
 
 export class GroupListComponent implements OnInit {
-  private DEBUG: boolean = false;
-  private GROUP_PAGE_SIZE: number = 100;
+  private DEBUG = false;
+  private GROUP_PAGE_SIZE = 100;
   private client: Client;
   public isLoading: boolean;
   public groups: Array<IManagedObject>;

@@ -1,26 +1,15 @@
 {
-  "/user/*": {
-    "target": "https://t10452223.eu-latest.cumulocity.com",
-    "secure": false,
-    "changeOrigin": true,
-    "logLevel": "debug"
+  "/apps/c8y-ng-boilerplate/**": {
+    "target": "http://localhost:4200/",
+    "pathRewrite": {
+      "^/apps/c8y-ng-boilerplate": ""
+    }
   },
-  "/measurement/*": {
-    "target": "https://t10452223.eu-latest.cumulocity.com",
-    "secure": false,
+
+  "/**!(apps/c8y-ng-boilerplate)/**/*": {
+    "target": "https://psfactory.eu-latest.cumulocity.com",
     "changeOrigin": true,
-    "logLevel": "debug"
-  },
-  "/inventory/*": {
-    "target": "https://t10452223.eu-latest.cumulocity.com",
     "secure": false,
-    "changeOrigin": true,
-    "logLevel": "debug"
-  },
-  "/apps/public/**": {
-    "target": "https://issg.test-ram.m2m.telekom.com",
-    "secure": false,
-    "changeOrigin": true,
-    "logLevel": "debug"
+    "ws": true
   }
 }

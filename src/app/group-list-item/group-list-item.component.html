@@ -16,6 +16,6 @@
 
 <ul *ngIf="group.childAssets && group.childAssets.references.length && showChildren">
   <li *ngFor="let g of group.childAssets.references">
-    <group-list-item [group]="g"></group-list-item>
+    <app-group-list-item [group]="g"></app-group-list-item>
   </li>
 </ul>

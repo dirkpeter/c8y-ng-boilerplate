@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --configuration=local",
-    "build": "ng build",
+    "start": "ng serve --configuration=local --live-reload false",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "c8ycli deploy -u https://psfactory.eu-latest.cumulocity.com ./dist/c8y-ng-boilerplate/"
   },
   "private": true,
   "dependencies": {

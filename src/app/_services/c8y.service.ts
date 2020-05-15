@@ -15,16 +15,16 @@ export class CumulocityService {
   };
 
   constructor() {
-    this.authCreds = { ... this.authCreds, ... environment.auth};
+    this.authCreds = Object.assign(this.authCreds, environment.auth);
     this.autoLogin();
   }
 
 
   async login(username, password) {
-    const creds = {... this.authCreds, ... {
-      username,
+    const creds = Object.assign(this.authCreds, {
+      user: username,
       password
-    }};
+    });
     const client = new Client(new BasicAuth(creds));
 
     try {

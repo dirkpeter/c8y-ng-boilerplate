@@ -21,7 +21,8 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/cumulocity.json"
             ],
             "styles": [
               "./node_modules/@fortawesome/fontawesome-free/css/all.css",

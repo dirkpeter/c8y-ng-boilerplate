@@ -5,7 +5,7 @@ import { CumulocityService } from '../_services';
 // TODO set types
 
 @Component({
-  selector: 'group-details',
+  selector: 'app-group-details',
   templateUrl: './group-details.component.html',
   styleUrls: [ './group-details.component.scss' ]
 })

@@ -5,7 +5,7 @@ import { environment } from './../../environments/environment';
 // TODO set types
 
 @Component({
-  selector: 'c8y-login',
+  selector: 'app-c8y-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
@@ -16,7 +16,7 @@ export class LoginComponent {
     user: '',
     password: ''
   };
-  formDisabled:Boolean = false;
+  formDisabled = false;
 
   constructor(public Cumulocity: CumulocityService) {
     this.model = { ... this.model, ... environment.auth};

@@ -7,6 +7,7 @@
   text-decoration: none;
   max-width: 100%;
   overflow: hidden;
+  color: var(--navigator-text-color,var(--navigator-dark-text-color,#fff));
 
   i {
     display: flex;
@@ -39,12 +40,11 @@ header {
 
 .toggle {
   display: flex;
-  background-color: var(--brand-dark);
-  color: var(--brand-light);
   width: 44px;
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  color: var(--navigator-text-color,var(--navigator-dark-text-color,#fff));
 }
 
 ul {

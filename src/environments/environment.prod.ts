@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   auth: {
-    tenant: '',
-    baseUrl: ''
+    // tenant: '',
+    // baseUrl: ''
   }
 };

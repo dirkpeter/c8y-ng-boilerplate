@@ -1,7 +1,8 @@
+<div class="tenant-brand"></div>
 <loading *ngIf="isLoading"></loading>
 
 <ul>
   <li *ngFor="let g of groups">
-    <group-list-item [group]="g"></group-list-item>
+    <app-group-list-item [group]="g"></app-group-list-item>
   </li>
 </ul>

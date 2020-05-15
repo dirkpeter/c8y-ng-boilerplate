@@ -7,9 +7,9 @@ import { environment } from './../../environments/environment';
 @Injectable()
 export class CumulocityService {
   public client: Client;
-  private storageKey:string = 'currentUser';
+  private storageKey = 'currentUser';
   private authCreds = {
-    tenant: '',
+    // tenant: '',
     user: '',
     password: ''
   };
@@ -24,11 +24,11 @@ export class CumulocityService {
     const creds = {... this.authCreds, ... {
       username,
       password
-    }}
-    const client = new Client(new BasicAuth(creds), environment.auth.baseUrl);
+    }};
+    const client = new Client(new BasicAuth(creds));
 
     try {
-      let response = await client.user.current();
+      const response = await client.user.current();
       this.client = client;
       localStorage.setItem(this.storageKey, JSON.stringify(creds));
 
@@ -45,11 +45,10 @@ export class CumulocityService {
 
       try {
         if (storedCreds) {
-          let credentials = JSON.parse(storedCreds);
+          const credentials = JSON.parse(storedCreds);
           this.login(credentials.username, credentials.password);
         }
-      }
-      catch(err) {
+      } catch (err) {
         console.log(err);
       }
     }
@@ -60,5 +59,6 @@ export class CumulocityService {
     // remove user from local storage and set current user to null
     // TODO proper logout?
     localStorage.removeItem(this.storageKey);
+    delete this.client;
   }
 }

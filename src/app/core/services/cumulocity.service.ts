@@ -1,15 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BasicAuth, Client } from '@c8y/client';
-import { environment } from './../../environments/environment';
-
-// TODO set types
+import { environment } from '@environments/environment';
 
 @Injectable()
 export class CumulocityService {
-  public client: Client;
+  client: Client;
   private storageKey = 'currentUser';
   private authCreds = {
-    // tenant: '',
     user: '',
     password: ''
   };
@@ -19,8 +16,7 @@ export class CumulocityService {
     this.autoLogin();
   }
 
-
-  async login(username, password) {
+  async login(username: string, password: string) {
     const creds = Object.assign(this.authCreds, {
       user: username,
       password
@@ -38,7 +34,6 @@ export class CumulocityService {
     }
   }
 
-
   autoLogin() {
     if (localStorage.length > 0) {
       const storedCreds = localStorage.getItem(this.storageKey);
@@ -53,7 +48,6 @@ export class CumulocityService {
       }
     }
   }
-
 
   logout() {
     // remove user from local storage and set current user to null

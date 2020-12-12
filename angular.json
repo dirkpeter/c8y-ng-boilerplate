@@ -25,9 +25,15 @@
               "src/cumulocity.json"
             ],
             "styles": [
-              "./node_modules/@fortawesome/fontawesome-free/css/all.css",
-              "src/styles.scss"
+              "src/styles/styles.scss",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css"
             ],
+            "extractCss": true,
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -91,8 +97,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles/styles.scss",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "scripts": []
           }
         },
@@ -126,5 +138,8 @@
         }
       }
     }},
-  "defaultProject": "c8y-ng-boilerplate"
+  "defaultProject": "c8y-ng-boilerplate",
+  "cli": {
+    "analytics": false
+  }
 }

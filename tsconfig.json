@@ -2,18 +2,28 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+        "@app/*": ["src/app/*"],
+        "@shared/*": ["src/app/shared/*"],
+        "@models/*": ["src/app/shared/models/*"],
+        "@environments/*": ["src/environments/*"],
+        "@core/*": ["src/app/core/*"],
+        "@services/*": ["src/app/core/services/*"],
+        "@constants/*": ["src/core/constants/*"],
+        "@guards/*": ["src/core/guards/*"]
+    },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "module": "esnext",
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
     "typeRoots": [
       "node_modules/@types"
     ],
+    "module": "es2020",
     "lib": [
       "es2018",
       "dom"

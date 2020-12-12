@@ -1,0 +1,15 @@
+<button
+  type="button"
+  title="{{ button.label }}"
+  class="button-{{ button.state }}"
+  [class.has-icon]="!!button.icon"
+  [disabled]="button.disabled || button.state == 'disabled'"
+>
+  <ng-container *ngIf="button.icon">
+    <i class="fas fa-{{ button.icon }}"></i>
+  </ng-container>
+  <span *ngIf="button.showLabel">
+    {{ button.label }}
+    <ng-content></ng-content>
+  </span>
+</button>

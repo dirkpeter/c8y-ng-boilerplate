@@ -1,5 +1,4 @@
-export class User {
+export class IUser {
   username: string;
   password: string;
-  // tenant: string;
 }

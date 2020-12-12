@@ -1,24 +1,2 @@
-<header>
-  <a [routerLink]="['']">Home</a>
-  <a [routerLink]="['chart']">Chart.js</a>
-  <a href="#" (click)="logout()">Logout</a>
-</header>
-
-<section *ngIf="Cumulocity.client">
-  <main>
-    <router-outlet></router-outlet>
-  </main>
-
-  <aside class="left">
-    <app-group-list></app-group-list>
-  </aside>
-
-
-  <aside class="right">
-  </aside>
-
-</section>
-
-<app-c8y-login *ngIf="!Cumulocity.client"></app-c8y-login>
-
-<footer></footer>
+<div *ngIf="loading" class="loadingIndicator">loading</div>
+<router-outlet></router-outlet>
